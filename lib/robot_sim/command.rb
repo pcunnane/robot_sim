@@ -1,6 +1,8 @@
 module RobotSim
   class Command
 
+    attr_reader :input
+    
     def initialize(input, controller)
       @input = input
       @controller = controller

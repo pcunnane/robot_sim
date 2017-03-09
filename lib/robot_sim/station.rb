@@ -28,6 +28,19 @@ module RobotSim
     def slot_exists?(position)
       !!@slots[position_to_index(position)]
     end
+
+    ##
+    # Resize slots, allows sizes less than current slot size.
+
+    def resize(size)
+      @size = size
+      new_slots = Array.new(@size).map { 0 }
+      new_slots.each_with_index do |slot, i|
+        new_slots[i] = @slots[i]
+      end
+      @slots = new_slots
+    end
+
     ##
     # Only expose slots via an interator.
 
