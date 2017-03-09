@@ -21,7 +21,7 @@ module RobotSim
       raise UnknownCommandException.new unless command
 
       @command_history.push(command)
-      
+
       begin
         command.execute
       rescue Exception => e
@@ -30,6 +30,7 @@ module RobotSim
         @command_history.pop 
         raise e
       end
+      
       @station
     end
   end

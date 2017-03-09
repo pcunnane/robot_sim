@@ -4,7 +4,6 @@ module RobotSim
     def initialize(input, controller)
       @input = input
       @controller = controller
-      @old_station = @controller.station.clone if @controller.station
     end
 
     def self.matches?(input)
@@ -13,10 +12,6 @@ module RobotSim
 
     def execute
       raise NotImplementedError.new
-    end
-
-    def undo
-      @controller.station = @old_station
     end
 
     private

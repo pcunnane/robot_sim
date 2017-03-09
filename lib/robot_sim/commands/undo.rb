@@ -12,6 +12,7 @@ module RobotSim
         _ = @controller.command_history.pop
         amount.times do
           command = @controller.command_history.pop
+          puts command.instance_variable_get("@input")
           command.undo
         end
       end

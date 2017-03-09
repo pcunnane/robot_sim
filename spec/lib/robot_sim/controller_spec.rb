@@ -63,4 +63,25 @@ RSpec.describe RobotSim::Controller do
     end
   end
 
+  describe 'mv' do
+    context 'size given first' do
+      before(:each) do
+        subject.execute("size 3")
+        subject.execute("add 3")
+        subject.execute("add 3")
+        subject.execute("add 3")
+        subject.execute("mv 3 2")
+      end
+      context 'valid add and moves' do
+        it "increments and decrements" do
+          station = subject.execute("undo 2")
+          expect(station.at(2)).to be(0)
+          expect(station.at(3)).to be(2)
+        end
+      end
+
+
+    end
+  end
+
 end
