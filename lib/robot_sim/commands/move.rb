@@ -24,7 +24,7 @@ module RobotSim
       end
 
       def self.matches?(input)
-        input.split(' ').first == 'mv'
+        command_name(input) == 'mv'
       end  
     end
   end

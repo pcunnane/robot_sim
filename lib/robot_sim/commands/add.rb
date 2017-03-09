@@ -13,9 +13,8 @@ module RobotSim
       end
 
       def self.matches?(input)
-        input.split(' ').first == 'add'
+        command_name(input) == 'add'
       end
-
     end
   end
 end

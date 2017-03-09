@@ -18,7 +18,7 @@ module RobotSim
       end
 
       def self.matches?(input)
-        input.split(' ').first == 'undo'
+        command_name(input) == 'undo'
       end
 
     end

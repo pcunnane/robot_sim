@@ -2,7 +2,7 @@ module RobotSim
   class Command
 
     attr_reader :input
-    
+
     def initialize(input, controller)
       @input = input
       @controller = controller
@@ -17,6 +17,10 @@ module RobotSim
     end
 
     private
+
+    def self.command_name(input)
+      input.split(' ').first
+    end
 
     def validate_slots!(*list)
       list.each do |slot|
