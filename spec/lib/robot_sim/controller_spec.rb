@@ -26,7 +26,6 @@ RSpec.describe RobotSim::Controller do
     end
   end
 
-
   describe 'rm' do
     context 'size given first' do
       before(:each) do
@@ -79,8 +78,6 @@ RSpec.describe RobotSim::Controller do
           expect(station.at(3)).to be(2)
         end
       end
-
-
     end
   end
 

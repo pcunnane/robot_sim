@@ -7,7 +7,8 @@ module RobotSim
       # I wasn't quite sure what to have replay do. 
       # At first I thought it was a redo command, but you would have called it redo, right?
       # Here, I have it printing the last n commands. Sort of like the bash 'history' command.
-
+      # If I had more time I'd print each version of the station (slots/boxes) for each command.
+      
       def execute
         amount = @input.split(' ')[1].to_i
 
