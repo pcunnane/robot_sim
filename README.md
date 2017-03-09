@@ -1,4 +1,4 @@
-# AdventureProjects Coding Excercise
+# AdventureProjects Coding Exercise
 
 ## Installation
 
