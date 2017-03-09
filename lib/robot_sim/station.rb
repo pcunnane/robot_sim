@@ -17,6 +17,10 @@ module RobotSim
       @slots[position_to_index(position)]
     end
 
+    def increment(position)
+      @slots[position_to_index(position)] += 1
+    end
+
     ##
     # Use 1 based everywhere except when accessing slots.
 

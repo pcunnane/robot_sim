@@ -14,4 +14,16 @@ RSpec.describe RobotSim::Controller do
       end
     end
   end
+
+  describe 'add' do
+    context 'size given first' do
+      before(:each) do
+        subject.execute("size 3")
+      end
+      it "increments the third slot" do
+        expect(subject.execute("add 3").at(3)).to be(1)
+      end
+    end
+  end
+
 end

@@ -2,7 +2,9 @@ module RobotSim
   class CommandFactory
 
     COMMANDS = [
-      RobotSim::Commands::Size
+      RobotSim::Commands::Size,
+      RobotSim::Commands::Add
+
     ]
 
     def self.build(input, controller)
