@@ -40,4 +40,27 @@ RSpec.describe RobotSim::Controller do
     end
   end
 
+  describe 'mv' do
+    context 'size given first' do
+      before(:each) do
+        subject.execute("size 3")
+        subject.execute("add 3")
+        subject.execute("add 3")
+      end
+      context 'valid slot' do
+        it "increments and decrements" do
+          station = subject.execute("mv 3 2")
+          expect(station.at(2)).to be(1)
+          expect(station.at(3)).to be(1)
+        end
+      end
+
+      context 'invalid slot' do
+        it 'raises an exception' do
+          expect { subject.execute("mv 1 2") }.to raise_exception(RobotSim::Controller::InvalidCommandException)
+        end
+      end
+    end
+  end
+
 end

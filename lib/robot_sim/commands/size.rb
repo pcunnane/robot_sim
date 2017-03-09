@@ -3,8 +3,12 @@ module RobotSim
     class Size < RobotSim::Command
 
       def execute
-        size = @input.split(' ').last.to_i
-        @controller.station = Station.new(size)
+        size = @input.split(' ')[1].to_i
+        if @controller.station
+          @controller.station.resize(size)
+        else
+          @controller.station = Station.new(size)
+        end
       end
 
       def self.matches?(input)

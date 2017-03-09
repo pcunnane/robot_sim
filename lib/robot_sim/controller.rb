@@ -3,11 +3,13 @@ module RobotSim
 
     class SizeNotGivenException < Exception; end
     class UnknownCommandException < Exception; end
+    class InvalidCommandException < Exception; end
 
-    attr_accessor :station
+    attr_accessor :station, :command_history
 
     def initialize
       @station = nil
+      @command_history = []
     end
 
     def execute(input)
@@ -18,8 +20,16 @@ module RobotSim
 
       raise UnknownCommandException.new unless command
 
-      command.execute
+      @command_history.push(command)
+      
+      begin
+        command.execute
+      rescue Exception => e
 
+        # Don't record failed commands.
+        @command_history.pop 
+        raise e
+      end
       @station
     end
   end

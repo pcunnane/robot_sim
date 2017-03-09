@@ -4,7 +4,9 @@ module RobotSim
     COMMANDS = [
       RobotSim::Commands::Size,
       RobotSim::Commands::Add,
-      RobotSim::Commands::Remove
+      RobotSim::Commands::Remove,
+      RobotSim::Commands::Move,
+      RobotSim::Commands::Undo,
     ]
 
     def self.build(input, controller)

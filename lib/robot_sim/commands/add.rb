@@ -3,8 +3,9 @@ module RobotSim
     class Add < RobotSim::Command
 
       def execute
-        position = @input.split(' ').last.to_i
-        @controller.station.increment(position)
+        slot = @input.split(' ')[1].to_i
+        validate_slots!(slot)
+        @controller.station.increment(slot)
       end
 
       def self.matches?(input)

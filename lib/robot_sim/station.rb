@@ -22,11 +22,12 @@ module RobotSim
     end
 
     def decrement(position)
-      if at(position) > 0
-        @slots[position_to_index(position)] -= 1
-      end
+      @slots[position_to_index(position)] -= 1
     end
 
+    def slot_exists?(position)
+      !!@slots[position_to_index(position)]
+    end
     ##
     # Only expose slots via an interator.
 

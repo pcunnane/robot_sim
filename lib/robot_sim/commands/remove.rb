@@ -2,9 +2,19 @@ module RobotSim
   module Commands
     class Remove < RobotSim::Command
 
+      ##
+      # Remove a box from the given slot.
+      # Raises an exception if the given slot is empty.
+
       def execute
-        position = @input.split(' ').last.to_i
-        @controller.station.decrement(position)
+        slot = @input.split(' ')[1].to_i
+        validate_slots!(slot)
+
+        if @controller.station.at(slot) > 0
+          @controller.station.decrement(slot)
+        else
+          raise RobotSim::Controller::InvalidCommandException.new("Cannot remove from slot #{first}")  
+        end  
       end
 
       def self.matches?(input)
