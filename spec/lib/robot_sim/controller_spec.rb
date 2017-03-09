@@ -8,13 +8,10 @@ RSpec.describe RobotSim::Controller do
       end
     end
 
-    # context 'size given first' do
-    #   before(:each) do
-    #     subject.execute("size 3")
-    #   end
-    #   it "raises the correct exception" do
-    #     expect { subject.execute("anything except size") }.to raise_exception(RobotSim::Controller::SizeNotGivenException)
-    #   end
-    # end
+    context 'size given first' do
+      it "has zero boxes in first slot" do
+        expect(subject.execute("size 3").at(1)).to be(0)
+      end
+    end
   end
 end
