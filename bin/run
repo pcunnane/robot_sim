@@ -4,6 +4,17 @@ require "bundler/setup"
 require "robot_sim"
 
 
+def print_help
+  puts <<-EOF
+  size [n] - Adjusts the number of slots, resizing if necessary. Program must start with this to be valid.
+  add [slot] - Adds a block to the specified slot.
+  mv [slot1] [slot2] - Moves a block from slot1 to slot2.
+  rm [slot] - Removes a block from the slot.
+  replay [n] - Replays the last n commands.
+  undo [n] - Undo the last n commands.
+  EOF
+end
+
 controller = RobotSim::Controller.new
 loop do
   begin
@@ -18,15 +29,4 @@ loop do
   rescue RobotSim::Controller::InvalidCommandException => e
     puts e.message
   end
-end
-
-def print_help
-  puts <<-EOF
-  size [n] - Adjusts the number of slots, resizing if necessary. Program must start with this to be valid.
-  add [slot] - Adds a block to the specified slot.
-  mv [slot1] [slot2] - Moves a block from slot1 to slot2.
-  rm [slot] - Removes a block from the slot.
-  replay [n] - Replays the last n commands.
-  undo [n] - Undo the last n commands.
-  EOF
 end
