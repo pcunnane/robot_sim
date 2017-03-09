@@ -22,6 +22,16 @@ module RobotSim
     end
 
     ##
+    # Only expose slots via an interator.
+    
+    def each_slot(&blk)
+      @slots.each do |slot|
+        blk.call(slot)
+      end
+    end
+
+    private
+    ##
     # Use 1 based everywhere except when accessing slots.
 
     def position_to_index(position)

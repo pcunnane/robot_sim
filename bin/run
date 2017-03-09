@@ -7,7 +7,8 @@ controller = RobotSim::Controller.new
 loop do
   begin
     input = gets.strip
-    controller.execute(input)
+    station = controller.execute(input)
+    RobotSim::StationPrinter.print(station)
   rescue RobotSim::Controller::SizeNotGivenException
     puts "Please provide the number of slots with 'size [n]'"
   end
