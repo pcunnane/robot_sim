@@ -21,9 +21,15 @@ module RobotSim
       @slots[position_to_index(position)] += 1
     end
 
+    def decrement(position)
+      if at(position) > 0
+        @slots[position_to_index(position)] -= 1
+      end
+    end
+
     ##
     # Only expose slots via an interator.
-    
+
     def each_slot(&blk)
       @slots.each do |slot|
         blk.call(slot)

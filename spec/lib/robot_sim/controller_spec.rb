@@ -26,4 +26,18 @@ RSpec.describe RobotSim::Controller do
     end
   end
 
+
+  describe 'rm' do
+    context 'size given first' do
+      before(:each) do
+        subject.execute("size 3")
+      end
+      it "increments and decrements" do
+        subject.execute("add 3")
+        station = subject.execute("rm 3")
+        expect(station.at(3)).to be(0)
+      end
+    end
+  end
+
 end
